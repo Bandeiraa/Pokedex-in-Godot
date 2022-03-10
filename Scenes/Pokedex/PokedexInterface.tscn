@@ -7,7 +7,7 @@
 [ext_resource path="res://Sprites/reply-message.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/bottom.png" type="Texture" id=6]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "HideSearchBar"
 tracks/0/type = "value"
 tracks/0/path = NodePath("SearchBar:rect_position")
@@ -46,8 +46,7 @@ tracks/2/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "ShowSearchBar"
+[sub_resource type="Animation" id=2]
 tracks/0/type = "value"
 tracks/0/path = NodePath("SearchBar:rect_position")
 tracks/0/interp = 1
@@ -349,8 +348,10 @@ __meta__ = {
 }
 
 [node name="Animation" type="AnimationPlayer" parent="."]
-anims/HideSearchBar = SubResource( 2 )
-anims/ShowSearchBar = SubResource( 1 )
+playback_speed = 2.0
+anims/HideSearchBar = SubResource( 1 )
+anims/ShowSearchBar = SubResource( 2 )
+
 [connection signal="send_request_pokemon" from="." to="Container" method="_send_request_pokemon"]
 [connection signal="pressed" from="Button" to="." method="_on_SearchBar_Button_pressed"]
 [connection signal="pressed" from="Container/BackButton" to="." method="_on_BackButton_pressed"]
